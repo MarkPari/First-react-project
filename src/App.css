@@ -1,3 +1,13 @@
+.myCont {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  background-color: lightblue;
+}
+.myLoader {
+  justify-content: center;
+}
+
 .App {
   text-align: center;
 }

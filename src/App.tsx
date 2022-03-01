@@ -43,7 +43,7 @@ const App = () => {
   },[])
 
 
-  return (<>{isLoading && <div className='myCont'><div className='myLoader'><CircularProgress/></div></div>}
+  return (<>{isLoading && <CircularProgress/>}
   <Grid container spacing={2}>
   {data && data.map(char=> {
   return (<Grid key={char.id} item xs={6} md={4}>

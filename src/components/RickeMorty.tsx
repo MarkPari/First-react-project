@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { CSSProperties, useEffect, useState, FC } from 'react';
 import './Person.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@mui/material/Card';
@@ -9,11 +9,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { character, RickyMorty } from '../models/RickyMorty';
 
+type RemoveItemFunction = (_:number) => void;
+type MediaCardProps = {character: character, addToFavourites: (_:number)=>void, removeItem: RemoveItemFunction/*oppure direttamente (_:number) => void*/}
 
-
-const MyCard = (props: {character: Partial<character>}) => {
-    const character = props.character;
-    const {name, image, status} = character;
+const MyCard: FC<MediaCardProps> = ({character, addToFavourites, removeItem, children}) => {
+    const {name, image, status, id} = character;
     let [elev, setElev]= useState(2 as 2 | 10) ;
 
     const style: CSSProperties =  {
@@ -36,8 +36,8 @@ const MyCard = (props: {character: Partial<character>}) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button onClick={() => removeItem(id)} size="small">Delete</Button>
+        <Button onClick={() => addToFavourites(id)} size="small">Add to favourites</Button>
       </CardActions>
     </Card>
 

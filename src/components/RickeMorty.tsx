@@ -37,7 +37,7 @@ const MyCard: FC<MediaCardProps> = ({character, addToFavourites, removeItem, chi
       </CardContent>
       <CardActions>
         <Button onClick={() => removeItem(id)} size="small">Delete</Button>
-        <Button onClick={() => addToFavourites(id)} size="small">Add to favourites</Button>
+        <Button onClick={() => addToFavourites(id)} size="small">Switch</Button>
       </CardActions>
     </Card>
 
